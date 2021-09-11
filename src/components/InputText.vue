@@ -3,7 +3,7 @@
     <lebel>
       <p>
         {{ title }}
-        <input :class="{ icon: iconPath }" type="text" :placeholder="text" />
+        <input :class="{ icon: iconPath }" :type="type" :placeholder="text" />
       </p>
       <img v-if="iconPath" :src="iconPath" />
     </lebel>
@@ -24,6 +24,10 @@ export default {
     iconPath: {
       type: String,
       default: null,
+    },
+    type: {
+      type: String,
+      default: "text",
     },
   },
 };
@@ -49,7 +53,7 @@ input {
   font-size: 1.2rem;
   padding-left: 4px;
   margin-top: 4px;
-
+  letter-spacing: 0.1rem;
   border-bottom: 1px solid gray;
 }
 input.icon {

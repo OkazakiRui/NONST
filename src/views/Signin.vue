@@ -12,6 +12,7 @@
         text="半角英数字で8文字以上"
         title="パスワード"
         :iconPath="iconPath.password"
+        type="password"
         class="inputText"
       />
     </div>

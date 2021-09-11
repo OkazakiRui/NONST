@@ -29,6 +29,7 @@ header {
   width: 100%;
   position: relative;
   height: 64px;
+  z-index: 1000;
 }
 .header {
   height: 64px;
