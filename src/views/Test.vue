@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import test from "../components/InputTextIcon.vue";
+import test from "../components/InputText.vue";
 export default {
   components: {
     test,
