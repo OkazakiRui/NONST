@@ -4,4 +4,7 @@ import "./registerServiceWorker";
 import router from "./router";
 import store from "./store";
 
+// ress 読み込み
+import "ress";
+
 createApp(App).use(store).use(router).mount("#app");
