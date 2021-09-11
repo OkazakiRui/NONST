@@ -20,9 +20,10 @@ export default {
 
 <style lang="scss" scoped>
 button {
-  width: 240px;
-  height: 60px;
-  border-radius: 30px;
+  width: 340px;
+  height: 50px;
+  border-radius: 25px;
+  font-size: 1.8rem;
 
   border: 1px solid gray;
 }

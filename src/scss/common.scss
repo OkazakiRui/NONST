@@ -1,7 +1,49 @@
 html {
   font-size: 62.5%;
+  font-weight: 600;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 #app > div {
   height: 100vh;
+  min-width: 375px;
+  width: 100%;
+}
+
+.m-0 {
+  display: block;
+  margin: 0 auto;
+  width: fit-content;
+}
+
+.flex {
+  display: flex;
+}
+.f-ali {
+  display: flex;
+  align-items: center;
+}
+.f-jus {
+  display: flex;
+  justify-content: center;
+}
+.f-cen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.f-bet {
+  display: flex;
+  justify-content: space-between;
+}
+.f-cenbet {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }

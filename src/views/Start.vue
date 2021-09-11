@@ -1,17 +1,26 @@
 <template>
-  <div>
-    <test text="新規登録" @my-click="test" />
+  <div class="start">
+    <h1 class="m-0 start__logo">
+      <img src="../../public/img/logo.svg" alt="NONSTのロゴ" />
+    </h1>
+    <div class="start__btns">
+      <Button1 class="m-0" text="新規登録" @my-click="signup" />
+      <Button1 class="m-0" text="ログイン" @my-click="signin" />
+    </div>
   </div>
 </template>
 
 <script>
-import test from "../components/Button.vue";
+import Button1 from "../components/Button1.vue";
 export default {
   components: {
-    test,
+    Button1,
   },
   methods: {
-    test() {
+    signup() {
+      console.log("click");
+    },
+    signin() {
       console.log("click");
     },
   },
