@@ -1,8 +1,9 @@
 <template>
   <div>
     <hr />
-    <router-link to="/start">start</router-link>
-    <router-link to="/">Home</router-link>
+    <router-link to="/Start">Start</router-link>
+    <router-link to="/Signup">Signup</router-link>
+    <router-link to="/Signin">Signin</router-link>
     <hr />
   </div>
 </template>
