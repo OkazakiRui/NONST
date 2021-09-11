@@ -3,17 +3,20 @@
     <app-header text="アカウント登録" />
     <div class="inputs">
       <input-text
-        text="メールアドレス"
+        text="example@example.com"
+        title="メールアドレス"
         :iconPath="iconPath.mail"
         class="inputText"
       />
       <input-text
-        text="パスワード"
+        text="半角英数字で8文字以上"
+        title="パスワード"
         :iconPath="iconPath.password"
         class="inputText"
       />
       <input-text
-        text="パスワードを再入力してください"
+        text="半角英数字で8文字以上"
+        title="パスワードを再入力"
         :iconPath="iconPath.password"
         class="inputText"
       />

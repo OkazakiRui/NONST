@@ -1,7 +1,12 @@
 <template>
   <div class="m-0">
-    <img v-if="iconPath" :src="iconPath" alt="" />
-    <input :class="{ icon: iconPath }" type="text" :placeholder="text" />
+    <lebel>
+      <p>
+        {{ title }}
+        <input :class="{ icon: iconPath }" type="text" :placeholder="text" />
+      </p>
+      <img v-if="iconPath" :src="iconPath" />
+    </lebel>
   </div>
 </template>
 
@@ -9,6 +14,10 @@
 export default {
   props: {
     text: {
+      type: String,
+      default: "text is not defined",
+    },
+    title: {
       type: String,
       default: "text is not defined",
     },
@@ -24,23 +33,26 @@ export default {
 div {
   position: relative;
 }
+p {
+  width: min-content;
+  font-size: 1.2rem;
+}
 img {
   position: absolute;
   z-index: -1;
-  left: 2px;
-  top: 50%;
-  transform: translateY(-50%);
+  left: 4px;
+  bottom: 4px;
 }
-
 input {
-  width: 340px;
-  height: 30px;
+  width: 320px;
+  height: 26px;
   font-size: 1.2rem;
-  padding-left: 2px;
+  padding-left: 4px;
+  margin-top: 4px;
 
   border-bottom: 1px solid gray;
 }
 input.icon {
-  padding-left: 40px;
+  padding-left: 32px;
 }
 </style>
