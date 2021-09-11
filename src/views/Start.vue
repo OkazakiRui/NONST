@@ -4,8 +4,8 @@
       <img src="../../public/img/logo.svg" alt="NONSTのロゴ" />
     </h1>
     <div class="start__btns">
-      <Button1 class="m-0" text="新規登録" @my-click="signup" />
-      <Button1 class="m-0" text="ログイン" @my-click="signin" />
+      <Button1 text="新規登録" @my-click="toSignup" />
+      <Button1 text="ログイン" @my-click="toSignin" />
     </div>
   </div>
 </template>
@@ -17,11 +17,11 @@ export default {
     Button1,
   },
   methods: {
-    signup() {
-      console.log("click");
+    toSignup() {
+      this.$router.push({ path: "/Signup" });
     },
-    signin() {
-      console.log("click");
+    toSignin() {
+      this.$router.push({ path: "/Signin" });
     },
   },
 };

@@ -1,9 +1,7 @@
 html {
   font-size: 62.5%;
   font-family: "Noto Sans JP", sans-serif;
-}
-@mixin mt($per) {
-  margin-top: calc(100vh * #{$per});
+  color: #333;
 }
 
 h1,

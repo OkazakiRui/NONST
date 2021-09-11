@@ -1,6 +1,6 @@
 <template>
   <div>
-    <app-header text="アカウント登録" />
+    <app-header text="ログイン" />
     <div class="inputs">
       <input-text
         text="メールアドレス"
@@ -12,13 +12,8 @@
         :iconPath="iconPath.password"
         class="inputText"
       />
-      <input-text
-        text="パスワードを再入力してください"
-        :iconPath="iconPath.password"
-        class="inputText"
-      />
     </div>
-    <Button1 class="button" text="新規登録" />
+    <Button1 class="button" text="ログイン" />
   </div>
 </template>
 
