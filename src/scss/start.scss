@@ -1,6 +1,11 @@
+// @mixin mt($per) {
+//   margin-top: calc(100vh * #{$per});
+// }
+
 .start {
   &__logo {
-    margin-top: calc(100vh * 0.331280788);
+    // margin-top: calc(100vh * 0.331280788);
+    // @include mt(0.331280788);
   }
 
   &__btns {

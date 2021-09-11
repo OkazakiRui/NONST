@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="m-0">
     <img v-if="iconPath" :src="iconPath" alt="" />
     <input :class="{ icon: iconPath }" type="text" :placeholder="text" />
   </div>
