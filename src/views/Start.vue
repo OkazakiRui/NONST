@@ -1,9 +1,21 @@
 <template>
-  <div></div>
+  <div>
+    <test text="新規登録" @my-click="test" />
+  </div>
 </template>
 
 <script>
-export default {};
+import test from "../components/Button.vue";
+export default {
+  components: {
+    test,
+  },
+  methods: {
+    test() {
+      console.log("click");
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
