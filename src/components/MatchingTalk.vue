@@ -1,14 +1,12 @@
 <template>
-  <button class="m-0" @click="click">
-    <figure>
-      <img src="" alt="" />
-    </figure>
-    <div>
-      <div>
+  <button class="m-0 f-alibet" @click="click">
+    <img :src="userImg" :alt="name + 'さんのプロフィール画像'" />
+    <div class="chants">
+      <div class="f-alibet">
         <h4>{{ name }}</h4>
         <p>{{ time }}</p>
       </div>
-      <p>{{ text }}</p>
+      <p class="talk">{{ text }}</p>
     </div>
   </button>
 </template>
@@ -35,7 +33,7 @@ export default {
     },
     userImg: {
       type: String,
-      default: "",
+      default: "./img/userIcon.svg",
     },
   },
 };
@@ -43,7 +41,26 @@ export default {
 
 <style lang="scss" scoped>
 button {
+  text-align: left;
   width: 100%;
   height: 74px;
+  padding: 12px 16px;
+}
+h4 {
+  font-size: 1.6rem;
+}
+img {
+  display: block;
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.chants {
+  margin-left: 16px;
+  width: 100%;
+}
+.talk {
+  font-size: 1.2rem;
 }
 </style>

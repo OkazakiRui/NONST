@@ -2,10 +2,10 @@
   <div class="segmentedControl">
     <div class="m-0 f-bet btns">
       <button @click="btn1Click" :class="{ selected: selected == 1 }">
-        {{ buttonText1 }}
+        <h2>{{ buttonText1 }}</h2>
       </button>
       <button @click="btn2Click" :class="{ selected: selected == 2 }">
-        {{ buttonText2 }}
+        <h2>{{ buttonText2 }}</h2>
       </button>
     </div>
   </div>
@@ -49,15 +49,21 @@ div.segmentedControl {
   .btns {
     width: 255px;
   }
-  button {
+  h2 {
     letter-spacing: 0.2rem;
-    width: 100px;
     font-size: 1.2rem;
-    padding: 8px 0;
     color: #757575;
+  }
+  button {
+    width: 100px;
+    padding: 8px 0;
+
     &.selected {
-      color: #333;
       position: relative;
+
+      h2 {
+        color: #333;
+      }
 
       &::before {
         content: "";
