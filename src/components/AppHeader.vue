@@ -29,12 +29,12 @@ header {
   width: 100%;
   position: relative;
   height: 64px;
-  z-index: 1000;
 }
 .header {
   height: 64px;
   width: 100%;
   position: fixed;
+  z-index: 1000;
   top: 0;
   background-color: #fff;
   box-shadow: 0px 2px 0 #50505050;

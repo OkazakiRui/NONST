@@ -1,11 +1,12 @@
 <template>
-  <div>
-    <test text="メールアドレス" @my-click="test" />
+  <div class="f-colbet">
+    <div>a</div>
+    <test selected="1" @my-click="test" />
   </div>
 </template>
 
 <script>
-import test from "../components/InputText.vue";
+import test from "../components/AppFooter.vue";
 export default {
   components: {
     test,
