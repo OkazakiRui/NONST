@@ -6,6 +6,7 @@ import CreateAccount from "../views/CreateAccount.vue";
 import Home from "../views/Home.vue";
 import Matching from "../views/Matching.vue";
 import Notification from "../views/Notification.vue";
+import Mypage from "../views/Mypage.vue";
 
 import Test from "../views/Test.vue";
 const routes = [
@@ -43,6 +44,11 @@ const routes = [
     path: "/Notification",
     name: "Notification",
     component: Notification,
+  },
+  {
+    path: "/Mypage",
+    name: "Mypage",
+    component: Mypage,
   },
   {
     path: "/Test",

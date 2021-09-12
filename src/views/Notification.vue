@@ -28,11 +28,6 @@ export default {
     AppFooter,
     Notice,
   },
-  data() {
-    return {
-      selected: 1,
-    };
-  },
   methods: {
     toMatching() {
       this.$router.push({ path: "/Matching" });
