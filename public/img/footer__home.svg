@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
-  <g id="グループ_113" data-name="グループ 113" transform="translate(0 -0.448)">
-    <rect id="長方形_44" data-name="長方形 44" width="30" height="30" transform="translate(0 0.448)" fill="none"/>
-    <g id="Icon_feather-home" data-name="Icon feather-home" transform="translate(5.25 3.539)">
-      <path id="パス_10" data-name="パス 10" d="M4.5,10.875,14.625,3,24.75,10.875V23.25A2.25,2.25,0,0,1,22.5,25.5H6.75A2.25,2.25,0,0,1,4.5,23.25Z" transform="translate(-4.5 -3)" fill="none" stroke="#757575" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-      <path id="パス_11" data-name="パス 11" d="M13.5,29.25V18h6.75V29.25" transform="translate(-6.75 -6.75)" fill="none" stroke="#757575" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
-    </g>
-  </g>
-</svg>
