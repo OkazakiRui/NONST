@@ -16,7 +16,7 @@
         class="inputText"
       />
     </div>
-    <Button1 class="button" text="ログイン" />
+    <Button1 @my-click="toHome" class="button" text="ログイン" />
   </div>
 </template>
 
@@ -37,6 +37,11 @@ export default {
         password: "./img/password.svg",
       },
     };
+  },
+  methods: {
+    toHome() {
+      this.$router.push({ path: "/" });
+    },
   },
 };
 </script>
