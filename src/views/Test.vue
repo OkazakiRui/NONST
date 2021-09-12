@@ -1,5 +1,5 @@
 <template>
-  <div class="f-colbet">
+  <div class="footer-pb">
     <div>a</div>
     <test selected="1" @my-click="test" />
   </div>

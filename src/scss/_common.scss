@@ -23,7 +23,7 @@ h6 {
 }
 
 #app > div {
-  height: 100vh;
+  min-height: 100vh;
   min-width: 375px;
   width: 100%;
 }
@@ -54,13 +54,15 @@ h6 {
   display: flex;
   justify-content: space-between;
 }
-.f-colbet {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
 .f-cenbet {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.footer-pb {
+  padding-bottom: 80px;
+}
+.segmented-pt {
+  padding-top: 33px;
 }

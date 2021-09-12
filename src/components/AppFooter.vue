@@ -1,6 +1,6 @@
 <template>
   <footer>
-    <div class="footer m-0 f-bet">
+    <div class="footer f-bet">
       <app-footer-button
         :selected="1 == selected"
         icon="1"
@@ -68,13 +68,14 @@ export default {
 footer {
   height: 80px;
   width: 100%;
-  z-index: 1000;
+  box-shadow: 0px -2px 0 #50505050;
   position: fixed;
+  z-index: 1000;
   bottom: 0;
   background-color: #fff;
-  box-shadow: 0px -2px 0 #50505050;
 }
 .footer {
+  margin: auto;
   width: 343px;
 }
 </style>
