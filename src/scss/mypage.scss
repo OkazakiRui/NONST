@@ -1,0 +1,49 @@
+.mypage {
+  flex-direction: column;
+  &__userImgWrap {
+    flex-direction: column;
+  }
+  &__userImg {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-top: 20px;
+    margin-bottom: 8px;
+  }
+  &__userImgButton {
+    margin-bottom: 16px;
+    color: blue;
+    font-size: 1.4rem;
+  }
+  &__userImgInput {
+    display: none;
+  }
+
+  &__title {
+    font-size: 1.8rem;
+    font-weight: bold;
+  }
+
+  &__details {
+    width: 100%;
+  }
+  &__userName {
+    font-size: 1.8rem;
+    font-weight: bold;
+    width: 50%;
+    text-align: right;
+    margin-right: 8px;
+  }
+  &__userAgeAndLive {
+    font-size: 1.4rem;
+    width: 50%;
+    text-align: left;
+    margin-left: 8px;
+    color: #757575;
+  }
+
+  &__userMessage {
+    width: calc(100% - 48px);
+  }
+}
