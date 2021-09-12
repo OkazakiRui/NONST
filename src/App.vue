@@ -1,6 +1,6 @@
 <template>
   <router-view />
-  <Link />
+  <Link v-if="false" />
 </template>
 
 <script>

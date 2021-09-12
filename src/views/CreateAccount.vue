@@ -16,7 +16,7 @@
         class="inputText"
       />
     </div>
-    <Button1 class="button" text="アカウント作成" />
+    <Button1 class="button" @my-click="toHome" text="アカウント作成" />
   </div>
 </template>
 
@@ -100,6 +100,11 @@ export default {
         "沖縄県",
       ],
     };
+  },
+  methods: {
+    toHome() {
+      this.$router.push({ path: "/" });
+    },
   },
 };
 </script>
