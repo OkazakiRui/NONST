@@ -69,7 +69,7 @@ footer {
   height: 80px;
   width: 100%;
   max-width: 414px;
-  box-shadow: 0px -2px 0 #50505050;
+  box-shadow: 0px -2px 0 #d6d6d6;
   position: fixed;
   z-index: 1000;
   bottom: 0;

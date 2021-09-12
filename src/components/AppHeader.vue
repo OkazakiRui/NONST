@@ -39,7 +39,7 @@ header {
   z-index: 1000;
   top: 0;
   background-color: #fff;
-  box-shadow: 0px 2px 0 #50505050;
+  box-shadow: 0px 2px 0 #d6d6d6;
   h2 {
     font-size: 1.6rem;
     letter-spacing: 0.2rem;

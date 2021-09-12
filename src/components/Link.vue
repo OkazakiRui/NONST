@@ -10,6 +10,6 @@
 
 <style lang="scss" scoped>
 div {
-  background-color: #50505050;
+  background-color: #d6d6d6;
 }
 </style>

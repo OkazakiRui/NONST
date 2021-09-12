@@ -41,7 +41,7 @@ export default {
 <style lang="scss" scoped>
 div.segmentedControl {
   position: fixed;
-  box-shadow: 0px 2px 0 #50505050;
+  box-shadow: 0px 2px 0 #d6d6d6;
   width: 100%;
   max-width: 414px;
   background-color: #fff;
