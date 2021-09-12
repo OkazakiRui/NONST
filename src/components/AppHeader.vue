@@ -29,10 +29,12 @@ header {
   width: 100%;
   position: relative;
   height: 64px;
+  max-width: 414px;
 }
 .header {
   height: 64px;
   width: 100%;
+  max-width: 414px;
   position: fixed;
   z-index: 1000;
   top: 0;

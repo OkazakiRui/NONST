@@ -29,7 +29,7 @@
       <matching-talk name="岡崎体育" text="マッチングありがとうございます！" />
       <matching-talk name="岡崎体育" text="マッチングありがとうございます！" />
     </div>
-    <app-footer selected="1" />
+    <app-footer selected="2" />
   </div>
 </template>
 
