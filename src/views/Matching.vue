@@ -4,10 +4,13 @@
     <segmented-control
       @btn1-click="btn1Click"
       @btn2-click="btn2Click"
-      buttonText1="相談する"
-      buttonText2="相談を聞く"
+      buttonText1="マッチング中"
+      buttonText2="履歴"
       :selected="selected"
     />
+    <div class="matching-talks">
+      <matching-talk />
+    </div>
     <app-footer selected="1" />
   </div>
 </template>
@@ -16,11 +19,14 @@
 import AppHeader from "../components/AppHeader.vue";
 import AppFooter from "../components/AppFooter.vue";
 import SegmentedControl from "../components/SegmentedControl.vue";
+import MatchingTalk from "../components/MatchingTalk.vue";
+
 export default {
   components: {
     AppHeader,
     AppFooter,
     SegmentedControl,
+    MatchingTalk,
   },
   data() {
     return {
