@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import FooterIcons from "./FooterIcons.vue";
+import FooterIcons from "./AppFooterIcons.vue";
 export default {
   methods: {
     click() {
