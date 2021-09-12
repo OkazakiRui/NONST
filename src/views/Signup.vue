@@ -23,7 +23,7 @@
         class="inputText"
       />
     </div>
-    <Button1 class="button" text="新規登録" />
+    <Button1 @my-click="toCreateAccount" class="button" text="新規登録" />
   </div>
 </template>
 
@@ -44,6 +44,11 @@ export default {
         password: "./img/password.svg",
       },
     };
+  },
+  methods: {
+    toCreateAccount() {
+      this.$router.push({ path: "/CreateAccount" });
+    },
   },
 };
 </script>
