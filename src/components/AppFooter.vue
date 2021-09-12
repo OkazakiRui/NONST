@@ -6,24 +6,28 @@
         icon="1"
         text="ホーム"
         iconPath="./img/footer__matching.svg#home"
+        @my-click="toHome"
       />
       <app-footer-button
         :selected="2 == selected"
         icon="2"
         text="マッチング"
         iconPath="./img/footer__matching.svg"
+        @my-click="toMatching"
       />
       <app-footer-button
         :selected="3 == selected"
         icon="3"
         text="通知"
         iconPath="./img/footer__notification.svg"
+        @my-click="toNotification"
       />
       <app-footer-button
         :selected="4 == selected"
         icon="4"
         text="マイページ"
         iconPath="./img/footer__mypage.svg"
+        @my-click="toMypage"
       />
     </div>
   </footer>
@@ -34,8 +38,17 @@ import AppFooterButton from "./AppFooterButton.vue";
 export default {
   components: { AppFooterButton },
   methods: {
-    click() {
-      this.$emit("my-click");
+    toHome() {
+      this.$router.push({ path: "/" });
+    },
+    toMatching() {
+      this.$router.push({ path: "/Matching" });
+    },
+    toNotification() {
+      this.$router.push({ path: "/Notification" });
+    },
+    toMypage() {
+      this.$router.push({ path: "/Mypage" });
     },
   },
   props: {
