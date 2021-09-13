@@ -31,7 +31,7 @@
           placeholder="【例】会社であった出来事を聞いてもらいたいです。（20~30文字）"
         ></textarea>
       </div>
-      <button1 class="seek__btn" text="募集する" />
+      <button1 class="seek__btn" text="確認する" />
       <button1 class="seek__backBtn" text="戻る" />
     </div>
     <app-footer selected="1" />
