@@ -39,24 +39,26 @@ div {
 }
 p {
   width: min-content;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
 }
 img {
   position: absolute;
   z-index: -1;
   left: 4px;
   bottom: 4px;
+  height: 22px;
 }
 input {
   width: 320px;
   height: 26px;
-  font-size: 1.2rem;
-  padding-left: 4px;
-  margin-top: 4px;
+  font-size: 1.4rem;
   letter-spacing: 0.1rem;
   border-bottom: 1px solid gray;
+  margin-top: 8px;
+  padding-left: 4px;
+  padding-bottom: 4px;
 }
 input.icon {
-  padding-left: 32px;
+  padding-left: 36px;
 }
 </style>

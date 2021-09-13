@@ -41,12 +41,12 @@ export default {
 <style lang="scss" scoped>
 p {
   width: min-content;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
 }
 select {
   width: 320px;
   height: 26px;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   padding-left: 4px;
   margin-top: 4px;
   letter-spacing: 0.1rem;
