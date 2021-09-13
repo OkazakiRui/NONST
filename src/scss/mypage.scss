@@ -27,6 +27,7 @@
 
   &__details {
     width: 100%;
+    margin-bottom: 32px;
   }
   &__userName {
     font-size: 1.8rem;
@@ -45,5 +46,47 @@
 
   &__userMessage {
     width: calc(100% - 48px);
+    margin-bottom: 24px;
   }
+  &__title {
+    font-weight: bold;
+    font-size: 1.6rem;
+  }
+  &__textarea {
+    font-size: 1.4rem;
+    width: 100%;
+    resize: none;
+    margin: 8px 0;
+    height: calc(5.6rem + 4px);
+  }
+
+  &__userProfile {
+    width: calc(100% - 48px);
+  }
+  &__input {
+    height: 56px;
+    font-size: 1.4rem;
+    border-bottom: 1px solid #757575;
+    p {
+      width: 50px;
+      color: #757575;
+    }
+    input,
+    select {
+      width: calc(100% - 50px);
+      height: 100%;
+      padding-left: 8px;
+      text-align: right;
+      &::placeholder {
+        color: #333;
+      }
+    }
+  }
+}
+
+.editArrow {
+  padding-right: 24px;
+  background-image: url(../../public/img/editArrow.svg);
+  background-repeat: no-repeat;
+  background-position: center right;
 }
