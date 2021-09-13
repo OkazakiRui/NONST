@@ -1,5 +1,6 @@
 .mypage {
   flex-direction: column;
+
   &__userImgWrap {
     flex-direction: column;
   }
@@ -62,6 +63,7 @@
 
   &__userProfile {
     width: calc(100% - 48px);
+    margin-bottom: 48px;
   }
   &__input {
     height: 56px;
@@ -81,6 +83,25 @@
         color: #333;
       }
     }
+  }
+  &__button {
+    height: 56px;
+    font-size: 1.4rem;
+    border-bottom: 1px solid #757575;
+    width: 100%;
+    text-align: left;
+    color: #757575;
+  }
+
+  &__logout {
+    display: flex;
+    justify-content: flex-end;
+    width: calc(100% - 48px);
+    margin-bottom: 24px;
+  }
+  &__logoutBtn {
+    font-size: 1.4rem;
+    color: #ff5252;
   }
 }
 

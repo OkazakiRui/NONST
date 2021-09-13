@@ -54,6 +54,14 @@
             </option>
           </select>
         </label>
+        <button class="mypage__button editArrow">パスワードを変更する</button>
+        <button class="mypage__button editArrow">
+          メールアドレスを変更する
+        </button>
+      </div>
+
+      <div class="mypage__logout">
+        <button class="mypage__logoutBtn">ログアウト</button>
       </div>
     </div>
     <app-footer selected="4" />
