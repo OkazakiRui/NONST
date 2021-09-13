@@ -10,17 +10,37 @@
     />
     <div class="home">
       <div class="home__speak" v-if="selected == 1">
-        <button class="m-0 home__30minutes home__30minutes--speak"></button>
+        <img
+          src="../../public/img/home__speak.svg"
+          class="m-0 home__30minutes"
+        />
         <button2
           text="<span style='font-size:1.8rem;font-weight:bold;color:white;'>相談相手</span>を募集する"
         />
       </div>
+
       <div class="home__listen" v-if="selected == 2">
-        <button class="m-0 home__30minutes home__30minutes--listen"></button>
+        <img
+          src="../../public/img/home__listen.svg"
+          class="m-0 home__30minutes"
+        />
         <button2
           colorGreen="true"
-          text="<span style='font-size:1.8rem;font-weight:bold;color:white;'>相談相手</span>を募集する"
+          text="<span style='font-size:1.8rem;font-weight:bold;color:white;'>今日</span>相談を聞く"
         />
+
+        <div class="f-bet m-0 home__btns">
+          <button2
+            colorGreen="true"
+            half="true"
+            text="<span style='font-size:1.8rem;font-weight:bold;color:white;'>明日</span>聞く"
+          />
+          <button2
+            colorGreen="true"
+            half="true"
+            text="<span style='font-size:1.8rem;font-weight:bold;color:white;'>カレンダー</span>から"
+          />
+        </div>
       </div>
     </div>
     <app-footer selected="1" />

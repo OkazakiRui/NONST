@@ -1,6 +1,6 @@
 <template>
   <button
-    :class="{ 'm-0': true, color: colorGreen }"
+    :class="{ 'm-0': true, color: colorGreen, half: half }"
     @click="click"
     v-html="text"
   ></button>
@@ -14,7 +14,15 @@ export default {
     },
   },
   props: {
+    text: {
+      type: String,
+      default: "text is not defined",
+    },
     colorGreen: {
+      type: Boolean,
+      default: false,
+    },
+    half: {
       type: Boolean,
       default: false,
     },
@@ -44,9 +52,17 @@ button {
   }
 }
 .color {
-  background-color: #00ad50;
+  background-color: #00cb5e;
   &::after {
     background: url(../../public/img/home__listen--btnDecoration.svg) no-repeat;
+  }
+}
+.half {
+  width: 142px;
+  margin-top: 16px;
+  &::after {
+    content: "";
+    display: none;
   }
 }
 </style>
