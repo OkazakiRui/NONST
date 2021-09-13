@@ -77,7 +77,7 @@ div.segmentedControl {
         margin: auto;
         border-radius: 2px;
         position: absolute;
-        background-color: blue;
+        background-color: #58b4fd;
       }
     }
   }

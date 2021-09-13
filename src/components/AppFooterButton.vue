@@ -51,10 +51,10 @@ button {
     stroke: #757575;
   }
   svg.selected {
-    stroke: blue;
+    stroke: #58b4fd;
   }
   &.selected {
-    color: blue;
+    color: #58b4fd;
   }
 }
 </style>
