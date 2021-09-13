@@ -1,5 +1,9 @@
 <template>
-  <button class="m-0" @click="click">{{ text }}</button>
+  <button
+    :class="{ 'm-0': true, color: colorGreen }"
+    @click="click"
+    v-html="text"
+  ></button>
 </template>
 
 <script>
@@ -10,9 +14,9 @@ export default {
     },
   },
   props: {
-    text: {
-      type: String,
-      default: "text is not defined",
+    colorGreen: {
+      type: Boolean,
+      default: false,
     },
   },
 };
@@ -20,11 +24,29 @@ export default {
 
 <style lang="scss" scoped>
 button {
-  width: 340px;
-  height: 50px;
-  border-radius: 25px;
-  font-size: 1.8rem;
-
-  border: 1px solid gray;
+  width: 300px;
+  height: 64px;
+  border-radius: 21px;
+  background-color: #58b4ff;
+  color: white;
+  font-size: 1.4rem;
+  margin-top: 56px;
+  position: relative;
+  &::after {
+    content: "";
+    display: block;
+    width: 77px;
+    height: 74px;
+    position: absolute;
+    left: -16px;
+    bottom: 50%;
+    background: url(../../public/img/home__speak--btnDecoration.svg) no-repeat;
+  }
+}
+.color {
+  background-color: #00ad50;
+  &::after {
+    background: url(../../public/img/home__listen--btnDecoration.svg) no-repeat;
+  }
 }
 </style>

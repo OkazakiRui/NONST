@@ -1,0 +1,13 @@
+.home {
+  &__30minutes {
+    width: 304px;
+    height: 179px;
+    margin-top: 32px;
+    &--speak {
+      background: url("../../public/img/home__speak.svg");
+    }
+    &--listen {
+      background: url("../../public/img/home__listen.svg");
+    }
+  }
+}
