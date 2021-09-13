@@ -7,6 +7,7 @@ import Home from "../views/Home.vue";
 import Matching from "../views/Matching.vue";
 import Notification from "../views/Notification.vue";
 import Mypage from "../views/Mypage.vue";
+import SeekPage from "../views/SeekPage.vue";
 
 import Test from "../views/Test.vue";
 const routes = [
@@ -49,6 +50,11 @@ const routes = [
     path: "/Mypage",
     name: "Mypage",
     component: Mypage,
+  },
+  {
+    path: "/SeekPage",
+    name: "SeekPage",
+    component: SeekPage,
   },
   {
     path: "/Test",
