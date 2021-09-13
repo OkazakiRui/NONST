@@ -24,7 +24,7 @@ h4 {
   width: 100%;
   padding: 4px 0;
   padding-left: 32px;
-  margin-bottom: 16px;
+  margin-bottom: 24px;
   font-size: 1.2rem;
   font-weight: bold;
   color: #757575;
