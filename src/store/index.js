@@ -6,6 +6,4 @@ export default createStore({
   modules: {
     APIKEY,
   },
-
-  // action =>  mutations => actions
 });

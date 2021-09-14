@@ -7,6 +7,7 @@
         title="メールアドレス"
         :iconPath="iconPath.mail"
         class="inputText"
+        v-model="user.email"
       />
       <input-text
         text="半角英数字で8文字以上"
@@ -14,12 +15,13 @@
         :iconPath="iconPath.password"
         type="password"
         class="inputText"
+        v-model="user.password"
       />
     </div>
     <Button1
       :blue="press"
       :dontPress="!press"
-      @my-click="toHome"
+      @my-click="signin"
       class="button"
       text="ログイン"
     />
@@ -30,6 +32,7 @@
 import AppHeader from "../components/AppHeader.vue";
 import InputText from "../components/InputText.vue";
 import Button1 from "../components/Button1.vue";
+import axios from "../axios-auth";
 export default {
   components: {
     AppHeader,
@@ -38,6 +41,10 @@ export default {
   },
   data() {
     return {
+      user: {
+        email: "",
+        password: "",
+      },
       iconPath: {
         mail: "./img/mail.svg",
         password: "./img/password.svg",
@@ -46,8 +53,26 @@ export default {
     };
   },
   methods: {
-    toHome() {
-      this.$router.push({ path: "/" });
+    signin() {
+      axios
+        .post(
+          `/accounts:signInWithPassword?key=${this.$store.getters.APIKEY}`,
+          {
+            email: this.user.email,
+            password: this.user.password,
+            returnSecureToken: true,
+          }
+        )
+        .then((response) => {
+          console.log(response);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+
+      this.user.email = "";
+      this.user.password = "";
+      // this.$router.push({ path: "/" });
     },
   },
 };
