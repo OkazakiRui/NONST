@@ -65,3 +65,11 @@ h6 {
 .segmented-pt {
   padding-top: 33px;
 }
+
+.contents {
+  width: calc(100% - 64px);
+  margin: 0 auto;
+}
+.shadow {
+  box-shadow: 0 3px 6px rgba($color: #000000, $alpha: 0.16);
+}
