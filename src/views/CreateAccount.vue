@@ -108,6 +108,11 @@ export default {
       ],
     };
   },
+  computed: {
+    idToken() {
+      return this.$store.getters.idToken;
+    },
+  },
   methods: {
     toHome() {
       this.$router.push({ path: "/" });

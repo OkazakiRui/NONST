@@ -9,9 +9,9 @@
           <button>日時変更する</button>
         </div>
         <div class="seek__inputs contents f-cen shadow">
-          <input type="time" value="00:00" step="00:30:00" />
+          <input type="time" v-model="time1" step="00:30:00" />
           <p>〜</p>
-          <input type="time" value="00:00" step="00:30:00" />
+          <input type="time" v-model="time2" step="00:30:00" />
         </div>
         <p class="seek__comment contents">
           ※2時間を超える場合、追加料金が発生します。
@@ -29,6 +29,7 @@
         <textarea
           class="contents shadow"
           placeholder="【例】会社であった出来事を聞いてもらいたいです。（20~30文字）"
+          v-model="message"
         ></textarea>
       </div>
       <button1 @my-click="toVerify" class="seek__btn" text="内容を確認する" />
@@ -36,7 +37,18 @@
     </div>
 
     <!-- 確認 -->
-    <seek-verify @back-click="back" @verify-click="verify" v-if="page == 2" />
+    <seek-verify
+      @back-click="back"
+      @verify-click="verify"
+      v-if="page == 2"
+      :name="name"
+      :age="age"
+      :time1="time1"
+      :time2="time2"
+      :message="message"
+      :shop="shop"
+      :icon="icon"
+    />
 
     <!-- 完了 -->
     <div v-if="page == 3">
@@ -65,6 +77,13 @@ export default {
   data() {
     return {
       page: 1,
+      name: "",
+      age: "",
+      time1: "00:00",
+      time2: "00:00",
+      message: "",
+      shop: "鳥貴族　天神橋三丁目店",
+      icon: "./img/userIcon.svg",
     };
   },
   methods: {

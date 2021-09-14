@@ -12,9 +12,9 @@
         <img src="../../public/img/card__fork.svg" />{{ shop }}
       </p>
       <p class="time f-ali">
-        <img src="../../public/img/card__time.svg" />{{ time }}
+        <img src="../../public/img/card__time.svg" />{{ time1 }} 〜 {{ time2 }}
       </p>
-      <p class="text">{{ text }}</p>
+      <p class="text">{{ message }}</p>
     </div>
   </button>
 </template>
@@ -24,23 +24,27 @@ export default {
   props: {
     name: {
       type: String,
-      default: "サンプル 太郎",
+      default: "名無し",
     },
     age: {
       type: String,
       default: "30代",
     },
+    time1: {
+      type: String,
+      default: "00:00",
+    },
+    time2: {
+      type: String,
+      default: "00:00",
+    },
+    message: {
+      type: String,
+      default: "よろしくお願いします！",
+    },
     shop: {
       type: String,
       default: "鳥貴族　天神橋三丁目店",
-    },
-    time: {
-      type: String,
-      default: "18:00 〜 20:00",
-    },
-    text: {
-      type: String,
-      default: "よろしくお願いします！",
     },
     icon: {
       type: String,
