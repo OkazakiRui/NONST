@@ -3,9 +3,9 @@
     <div class="f-ali">
       <img class="icon" :src="icon" />
       <p class="name">
-        {{ name }}
+        {{ name ? name : "名無し" }}
       </p>
-      <p class="age">【{{ age }}】</p>
+      <p class="age">【{{ age ? age : "30代" }}】</p>
     </div>
     <div>
       <p class="shop f-ali">
@@ -14,7 +14,9 @@
       <p class="time f-ali">
         <img src="../../public/img/card__time.svg" />{{ time1 }} 〜 {{ time2 }}
       </p>
-      <p class="text">{{ message }}</p>
+      <p class="text">
+        {{ message ? message : "会社であった出来事を聞いてもらいたいです。" }}
+      </p>
     </div>
   </button>
 </template>
