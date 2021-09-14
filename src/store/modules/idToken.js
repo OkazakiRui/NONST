@@ -46,6 +46,15 @@ const actions = {
         router.push({ path: "/" });
       });
   },
+  logout({ commit }) {
+    commit("updateIdToken", null);
+    localStorage.removeItem("idToken");
+    localStorage.removeItem("refreshToken");
+    localStorage.removeItem("expiryTimeMs");
+    router.push({
+      path: "/start",
+    });
+  },
   // トークンをリフレッシュする関数
   async refreshIdToken({ dispatch }, refreshToken) {
     axiosRefresh

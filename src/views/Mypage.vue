@@ -167,9 +167,7 @@ export default {
       });
     },
     userLogout() {
-      this.$router.push({
-        path: "/Start",
-      });
+      this.$store.dispatch("logout");
     },
   },
 };
