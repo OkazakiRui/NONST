@@ -96,7 +96,9 @@
     margin: 16px auto;
     font-weight: bold;
     font-size: 1.4rem;
-    color: #757575;
+    p {
+      color: #757575;
+    }
   }
 
   &__card {
