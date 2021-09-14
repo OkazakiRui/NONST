@@ -1,4 +1,5 @@
 import axios from "../../axios-auth";
+import router from "../../router";
 
 const state = {
   idToken: null,
@@ -18,6 +19,7 @@ const actions = {
       })
       .then((response) => {
         commit("updateIdToken", response.data.idToken);
+        router.push({ path: "/CreateAccount" });
       });
   },
   signin({ commit }, authData) {
@@ -32,6 +34,7 @@ const actions = {
       )
       .then((response) => {
         commit("updateIdToken", response.data.idToken);
+        router.push({ path: "/" });
       });
   },
 };

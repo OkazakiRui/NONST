@@ -66,11 +66,6 @@ export default {
         email: this.user.email,
         password: this.user.secondPassword,
       });
-
-      this.user.email = "";
-      this.user.password = "";
-      this.user.secondPassword = "";
-      this.$router.push({ path: "/CreateAccount" });
     },
   },
 };

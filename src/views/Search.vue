@@ -36,10 +36,21 @@ export default {
       posts: [],
     };
   },
+  computed: {
+    idToken() {
+      return this.$store.getters.idToken;
+    },
+  },
   created() {
-    axios.get("/posts").then((respons) => {
-      this.posts = respons.data.documents;
-    });
+    axios
+      .get("/posts", {
+        headers: {
+          Authorization: `Bearer ${this.idToken}`,
+        },
+      })
+      .then((respons) => {
+        this.posts = respons.data.documents;
+      });
   },
 };
 </script>

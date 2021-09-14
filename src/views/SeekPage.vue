@@ -87,6 +87,11 @@ export default {
       icon: "./img/userIcon.svg",
     };
   },
+  computed: {
+    idToken() {
+      return this.$store.getters.idToken;
+    },
+  },
   methods: {
     toHome() {
       this.$router.push({ path: "/" });
@@ -99,31 +104,39 @@ export default {
     },
     verify() {
       axios
-        .post("/posts", {
-          fields: {
-            name: {
-              stringValue: this.name,
-            },
-            age: {
-              stringValue: this.age,
-            },
-            time1: {
-              stringValue: this.time1,
-            },
-            time2: {
-              stringValue: this.time2,
-            },
-            message: {
-              stringValue: this.message,
-            },
-            shop: {
-              stringValue: this.shop,
-            },
-            icon: {
-              stringValue: this.icon,
+        .post(
+          "/posts",
+          {
+            fields: {
+              name: {
+                stringValue: this.name,
+              },
+              age: {
+                stringValue: this.age,
+              },
+              time1: {
+                stringValue: this.time1,
+              },
+              time2: {
+                stringValue: this.time2,
+              },
+              message: {
+                stringValue: this.message,
+              },
+              shop: {
+                stringValue: this.shop,
+              },
+              icon: {
+                stringValue: this.icon,
+              },
             },
           },
-        })
+          {
+            headers: {
+              Authorization: `Bearer ${this.idToken}`,
+            },
+          }
+        )
         .then((response) => {
           console.log(response);
         })
