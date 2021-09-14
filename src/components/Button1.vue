@@ -1,5 +1,10 @@
 <template>
-  <button class="m-0" @click="click">{{ text }}</button>
+  <button
+    :class="{ 'm-0': true, blue: blue, dontPress: dontPress }"
+    @click="click"
+  >
+    {{ text }}
+  </button>
 </template>
 
 <script>
@@ -14,6 +19,14 @@ export default {
       type: String,
       default: "text is not defined",
     },
+    blue: {
+      type: Boolean,
+      default: false,
+    },
+    dontPress: {
+      type: Boolean,
+      default: false,
+    },
   },
 };
 </script>
@@ -27,5 +40,15 @@ button {
   font-size: 1.4rem;
 
   border: 1px solid gray;
+}
+button.blue {
+  border: none;
+  background: #58b4ff;
+  color: white;
+}
+button.dontPress {
+  border: none;
+  background: #c7c7c7;
+  color: white;
 }
 </style>

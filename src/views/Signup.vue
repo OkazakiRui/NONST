@@ -23,7 +23,13 @@
         class="inputText"
       />
     </div>
-    <Button1 @my-click="toCreateAccount" class="button" text="新規登録" />
+    <Button1
+      :blue="press"
+      :dontPress="!press"
+      @my-click="toCreateAccount"
+      class="button"
+      text="新規登録"
+    />
   </div>
 </template>
 
@@ -43,6 +49,7 @@ export default {
         mail: "./img/mail.svg",
         password: "./img/password.svg",
       },
+      press: true,
     };
   },
   methods: {

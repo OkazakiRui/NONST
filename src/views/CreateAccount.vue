@@ -16,7 +16,13 @@
         class="inputText"
       />
     </div>
-    <Button1 class="button" @my-click="toHome" text="アカウント作成" />
+    <Button1
+      :blue="press"
+      :dontPress="!press"
+      class="button"
+      @my-click="toHome"
+      text="アカウント作成"
+    />
   </div>
 </template>
 
@@ -38,6 +44,7 @@ export default {
         mail: "./img/mail.svg",
         password: "./img/password.svg",
       },
+      press: true,
       ages: [
         "10代",
         "20代",

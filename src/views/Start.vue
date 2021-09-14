@@ -4,7 +4,7 @@
       <img src="../../public/img/logo.svg" alt="NONSTのロゴ" />
     </h1>
     <div class="start__btns">
-      <Button1 text="新規登録" @my-click="toSignup" />
+      <Button1 blue="true" text="新規登録" @my-click="toSignup" />
       <Button1 text="ログイン" @my-click="toSignin" />
     </div>
   </div>

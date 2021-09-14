@@ -16,7 +16,13 @@
         class="inputText"
       />
     </div>
-    <Button1 @my-click="toHome" class="button" text="ログイン" />
+    <Button1
+      :blue="press"
+      :dontPress="!press"
+      @my-click="toHome"
+      class="button"
+      text="ログイン"
+    />
   </div>
 </template>
 
@@ -36,6 +42,7 @@ export default {
         mail: "./img/mail.svg",
         password: "./img/password.svg",
       },
+      press: true,
     };
   },
   methods: {
