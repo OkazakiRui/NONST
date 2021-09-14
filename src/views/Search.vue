@@ -2,7 +2,19 @@
   <div class="footer-pb">
     <app-header text="検索結果" />
     <div class="search">
-      <card green="true" class="search__card" />
+      <card
+        green="true"
+        class="search__card"
+        v-for="(post, index) in posts"
+        :key="index"
+        :name="post.fields.name.stringValue"
+        :age="post.fields.age.stringValue"
+        :time1="post.fields.time1.stringValue"
+        :time2="post.fields.time2.stringValue"
+        :message="post.fields.message.stringValue"
+        :shop="post.fields.shop.stringValue"
+        :icon="post.fields.icon.stringValue"
+      />
     </div>
     <app-footer selected="1" />
   </div>
@@ -19,14 +31,18 @@ export default {
     AppFooter,
     Card,
   },
+  data() {
+    return {
+      posts: [],
+    };
+  },
   created() {
     axios
-      .get("/posts", {
-        headers: {
-          Authorization: `Bearer ${this.idToken}`,
-        },
-      })
+      .get(
+        `https://firestore.googleapis.com/v1/projects/${process.env.VUE_APP_FIREBASE_PROJECT_ID}/databases/(default)/documents/posts`
+      )
       .then((respons) => {
+        console.log(respons.data.documents);
         this.posts = respons.data.documents;
       });
   },
