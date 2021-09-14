@@ -13,6 +13,7 @@
           id="userIconInput"
           type="file"
           accept="image/*"
+          @change="profileUpdate"
         />
       </div>
 
@@ -27,6 +28,8 @@
           <textarea
             class="mypage__textarea editArrow"
             :placeholder="user.message"
+            v-model="input.message"
+            @change="profileUpdate"
           ></textarea>
         </label>
       </div>
@@ -35,11 +38,23 @@
         <h4 class="mypage__title">プロフィール</h4>
         <label class="f-alibet mypage__input">
           <p>名前</p>
-          <input type="text" class="editArrow" :placeholder="user.name" />
+          <input
+            type="text"
+            class="editArrow"
+            :placeholder="user.name"
+            @change="profileUpdate"
+            v-model="input.name"
+          />
         </label>
         <label class="f-alibet mypage__input">
           <p>年齢</p>
-          <select class="editArrow" required :value="user.age">
+          <select
+            class="editArrow"
+            :value="user.age"
+            required
+            v-model="user.age"
+            @change="profileUpdate"
+          >
             <option v-for="(age, index) in ages" :key="index" :value="age">
               {{ age }}
             </option>
@@ -47,7 +62,13 @@
         </label>
         <label class="f-alibet mypage__input">
           <p>所在地</p>
-          <select class="editArrow" :value="user.live" required>
+          <select
+            class="editArrow"
+            :value="user.live"
+            required
+            v-model="user.live"
+            @change="profileUpdate"
+          >
             <option disabled selected></option>
             <option v-for="(live, index) in lives" :key="index" :value="live">
               {{ live }}
@@ -77,6 +98,63 @@ import AppHeader from "../components/AppHeader.vue";
 import AppFooter from "../components/AppFooter.vue";
 import axios from "../axios-db";
 export default {
+  components: {
+    AppHeader,
+    AppFooter,
+  },
+  methods: {
+    userIconEdit() {
+      document.getElementById("userIconInput").click();
+    },
+    toChangePassword() {
+      this.$router.push({
+        path: "/ChangePassword",
+      });
+    },
+    toChangeMailaddress() {
+      this.$router.push({
+        path: "/ChangePassword",
+      });
+    },
+    userLogout() {
+      this.$store.dispatch("logout");
+    },
+    profileUpdate(e) {
+      if (this.input.name) this.user.name = this.input.name;
+      if (this.input.message) this.user.message = this.input.message;
+
+      if (e.target.files) {
+        const image = e.target.files[0];
+        const reader = new FileReader();
+        reader.readAsDataURL(image);
+        reader.onload = () => {
+          this.user.img = reader.result;
+          axios.put(`/${localStorage.getItem("localId")}.json`, {
+            name: this.user.name,
+            age: this.user.age,
+            live: this.user.live,
+            message: this.user.message,
+            img: this.user.img,
+          });
+        };
+      } else {
+        axios.put(`/${localStorage.getItem("localId")}.json`, {
+          name: this.user.name,
+          age: this.user.age,
+          live: this.user.live,
+          message: this.user.message,
+          img: this.user.img,
+        });
+      }
+    },
+  },
+  created() {
+    axios.get(`/${localStorage.getItem("localId")}.json`).then((response) => {
+      Object.keys(response.data).forEach((key) => {
+        this.user[key] = response.data[key];
+      });
+    });
+  },
   data() {
     return {
       user: {
@@ -85,6 +163,10 @@ export default {
         live: "",
         message: "はじめまして！よろしくお願いします！",
         img: "./img/userIcon.svg",
+      },
+      input: {
+        name: "",
+        message: "",
       },
       load: false,
       ages: [
@@ -149,37 +231,6 @@ export default {
         "沖縄県",
       ],
     };
-  },
-  components: {
-    AppHeader,
-    AppFooter,
-  },
-  methods: {
-    userIconEdit() {
-      document.getElementById("userIconInput").click();
-    },
-    toChangePassword() {
-      this.$router.push({
-        path: "/ChangePassword",
-      });
-    },
-    toChangeMailaddress() {
-      this.$router.push({
-        path: "/ChangePassword",
-      });
-    },
-    userLogout() {
-      this.$store.dispatch("logout");
-    },
-  },
-  created() {
-    const localId = localStorage.getItem("localId");
-    axios.get(`/${localId}.json`).then((response) => {
-      Object.keys(response.data).forEach((key) => {
-        this.user[key] = response.data[key];
-      });
-      // this.load = true;
-    });
   },
 };
 </script>
