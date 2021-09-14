@@ -2,13 +2,14 @@
   <div class="m-0">
     <lebel>
       <p>
-        {{ title }}
+        {{ title }}<span>{{ errorMessage }}</span>
         <input
           :class="{ icon: iconPath }"
           :type="type"
           :placeholder="text"
           :value="modelValue"
           @input="changeValue"
+          @change="change"
         />
       </p>
       <img v-if="iconPath" :src="iconPath" />
@@ -21,7 +22,7 @@ export default {
   props: {
     modelValue: {
       type: String,
-      default: null,
+      default: "",
     },
     text: {
       type: String,
@@ -39,11 +40,18 @@ export default {
       type: String,
       default: "text",
     },
+    errorMessage: {
+      type: String,
+      default: null,
+    },
   },
   emits: ["update:modelValue"],
   methods: {
     changeValue(e) {
       this.$emit("update:modelValue", e.target.value);
+    },
+    change() {
+      this.$emit("my-change");
     },
   },
 };
@@ -76,5 +84,11 @@ input {
 }
 input.icon {
   padding-left: 36px;
+}
+
+span {
+  color: #ff5252;
+  font-size: 1rem;
+  margin-left: 8px;
 }
 </style>
