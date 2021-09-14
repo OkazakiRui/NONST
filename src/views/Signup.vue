@@ -40,7 +40,6 @@
 import AppHeader from "../components/AppHeader.vue";
 import InputText from "../components/InputText.vue";
 import Button1 from "../components/Button1.vue";
-import axios from "../axios-auth";
 export default {
   components: {
     AppHeader,
@@ -63,18 +62,10 @@ export default {
   },
   methods: {
     toCreateAccount() {
-      axios
-        .post(`/accounts:signUp?key=${this.$store.getters.APIKEY}`, {
-          email: this.user.email,
-          password: this.user.secondPassword,
-          returnSecureToken: true,
-        })
-        .then((response) => {
-          console.log(response);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+      this.$store.dispatch("signup", {
+        email: this.user.email,
+        password: this.user.secondPassword,
+      });
 
       this.user.email = "";
       this.user.password = "";

@@ -32,7 +32,6 @@
 import AppHeader from "../components/AppHeader.vue";
 import InputText from "../components/InputText.vue";
 import Button1 from "../components/Button1.vue";
-import axios from "../axios-auth";
 export default {
   components: {
     AppHeader,
@@ -54,21 +53,10 @@ export default {
   },
   methods: {
     signin() {
-      axios
-        .post(
-          `/accounts:signInWithPassword?key=${this.$store.getters.APIKEY}`,
-          {
-            email: this.user.email,
-            password: this.user.password,
-            returnSecureToken: true,
-          }
-        )
-        .then((response) => {
-          console.log(response);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+      this.$store.dispatch("signin", {
+        email: this.user.email,
+        password: this.user.password,
+      });
 
       this.user.email = "";
       this.user.password = "";
