@@ -63,7 +63,9 @@
       </div>
 
       <div class="mypage__logout">
-        <button class="mypage__logoutBtn">ログアウト</button>
+        <button @click="userLogout" class="mypage__logoutBtn">
+          ログアウト
+        </button>
       </div>
     </div>
     <app-footer selected="4" />
@@ -162,6 +164,11 @@ export default {
     toChangeMailaddress() {
       this.$router.push({
         path: "/ChangePassword",
+      });
+    },
+    userLogout() {
+      this.$router.push({
+        path: "/Start",
       });
     },
   },
