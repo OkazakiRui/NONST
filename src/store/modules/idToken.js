@@ -11,7 +11,7 @@ const mutations = {
   },
 };
 const actions = {
-  signup({ commit, dispatch }, authData) {
+  signup({ dispatch }, authData) {
     axios
       .post(`/accounts:signUp?key=${process.env.VUE_APP_FIREBASE_APIKEY}`, {
         email: authData.email,
@@ -19,25 +19,15 @@ const actions = {
         returnSecureToken: true,
       })
       .then((response) => {
-        const now = new Date();
-        // 有効期限が切れる時間を代入
-        const expiryTimeMs = now.getTime() + response.data.expiresIn * 1000;
-
-        // localStorage に保存
-        localStorage.setItem("idToken", response.data.idToken);
-        localStorage.setItem("refreshToken", response.data.refreshToken);
-        localStorage.setItem("expiryTimeMs", expiryTimeMs);
-        commit("updateIdToken", response.data.idToken);
-
-        // 有効期限の時間が来ると一回実行
-        setTimeout(() => {
-          // トークンをリフレッシュする関数
-          dispatch("refreshIdToken", response.data.refreshToken);
-        }, response.data.expiresIn * 1000);
+        dispatch("setAuthData", {
+          idToken: response.data.idToken,
+          expiresIn: response.data.expiresIn,
+          refreshToken: response.data.refreshToken,
+        });
         router.push({ path: "/CreateAccount" });
       });
   },
-  signin({ commit, dispatch }, authData) {
+  signin({ dispatch }, authData) {
     axios
       .post(
         `/accounts:signInWithPassword?key=${process.env.VUE_APP_FIREBASE_APIKEY}`,
@@ -48,31 +38,30 @@ const actions = {
         }
       )
       .then((response) => {
-        localStorage.setItem("idToken", response.data.idToken);
-        commit("updateIdToken", response.data.idToken);
-        setTimeout(() => {
-          dispatch("refreshIdToken", response.data.refreshToken);
-        }, response.data.expiresIn * 1000);
+        dispatch("setAuthData", {
+          idToken: response.data.idToken,
+          expiresIn: response.data.expiresIn,
+          refreshToken: response.data.refreshToken,
+        });
         router.push({ path: "/" });
       });
   },
   // トークンをリフレッシュする関数
-  refreshIdToken({ commit, dispatch }, refreshToken) {
+  async refreshIdToken({ dispatch }, refreshToken) {
     axiosRefresh
       .post(`/token?key=${process.env.VUE_APP_FIREBASE_APIKEY}`, {
         grant_type: "refresh_token",
         refresh_token: refreshToken,
       })
       .then((response) => {
-        // localStorage.setItem("idToken", response.data.id_token);
-        commit("updateIdToken", response.data.id_token);
-        // 有効期限の時間が来るたびに自動で延長
-        setTimeout(() => {
-          dispatch("refreshIdToken", response.data.refresh_token);
-        }, response.data.expires_in * 1000);
+        dispatch("setAuthData", {
+          idToken: response.data.id_token,
+          expiresIn: response.data.expires_in,
+          refreshToken: response.data.refresh_token,
+        });
       });
   },
-  autoSignin({ commit, dispatch }) {
+  async autoSignin({ commit, dispatch }) {
     const idToken = localStorage.getItem("idToken");
     const refreshToken = localStorage.getItem("refreshToken");
     const expiryTimeMs = localStorage.getItem("expiryTimeMs");
@@ -93,6 +82,23 @@ const actions = {
 
       commit("updateIdToken", idToken);
     }
+  },
+  setAuthData({ commit, dispatch }, authData) {
+    const now = new Date();
+    // 有効期限が切れる時間を代入
+    const expiryTimeMs = now.getTime() + authData.expiresIn * 1000;
+
+    // localStorage に保存
+    localStorage.setItem("idToken", authData.idToken);
+    localStorage.setItem("refreshToken", authData.refreshToken);
+    localStorage.setItem("expiryTimeMs", expiryTimeMs);
+    commit("updateIdToken", authData.idToken);
+
+    // 有効期限の時間が来ると一回実行
+    setTimeout(() => {
+      // トークンをリフレッシュする関数
+      dispatch("refreshIdToken", authData.refreshToken);
+    }, authData.expiresIn * 1000);
   },
 };
 const getters = {
