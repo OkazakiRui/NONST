@@ -67,6 +67,7 @@ import TitleBar from "../components/TitleBar.vue";
 import Button1 from "../components/Button1.vue";
 import SeekVerify from "../components/SeekVerify.vue";
 import axios from "axios";
+import axiosDB from "../axios-db";
 export default {
   components: {
     AppHeader,
@@ -153,6 +154,15 @@ export default {
       this.icon = "./img/userIcon.svg";
       this.page = 3;
     },
+  },
+  created() {
+    axiosDB.get(`/${localStorage.getItem("localId")}.json`).then((response) => {
+      Object.keys(response.data).forEach((key) => {
+        if (key == "message") return;
+        if (key == "img") this.icon = response.data[key];
+        this[key] = response.data[key];
+      });
+    });
   },
 };
 </script>
