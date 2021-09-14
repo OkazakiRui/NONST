@@ -31,13 +31,17 @@
           placeholder="【例】会社であった出来事を聞いてもらいたいです。（20~30文字）"
         ></textarea>
       </div>
-      <button1 @my-click="verify" class="seek__btn" text="確認する" />
-      <button1 class="seek__backBtn" text="戻る" />
+      <button1 @my-click="toVerify" class="seek__btn" text="内容を確認する" />
+      <button1 @my-click="toHome" class="seek__backBtn" text="ホームに戻る" />
     </div>
-    <seek-verify v-if="page == 2" />
+
+    <!-- 確認 -->
+    <seek-verify @back-click="back" @verify-click="verify" v-if="page == 2" />
+
+    <!-- 完了 -->
     <div v-if="page == 3">
       <app-header text="募集完了" />
-      <button class="m-0 mt64">
+      <button @click="toHome" class="m-0 mt64">
         <img src="../../public/img/seek__verify.svg" />
       </button>
     </div>
@@ -60,12 +64,21 @@ export default {
   },
   data() {
     return {
-      page: 3,
+      page: 1,
     };
   },
   methods: {
-    verify() {
+    toHome() {
+      this.$router.push({ path: "/" });
+    },
+    back() {
+      this.page = 1;
+    },
+    toVerify() {
       this.page = 2;
+    },
+    verify() {
+      this.page = 3;
     },
   },
 };

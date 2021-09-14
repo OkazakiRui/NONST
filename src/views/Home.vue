@@ -9,19 +9,21 @@
       :selected="selected"
     />
     <div class="home">
+      <!-- 話す -->
       <div class="home__speak" v-if="selected == 1">
         <img
-          src="../../public/img/home__speak.svg"
+          src="../../public/img/home__speak@2x.jpg"
           class="m-0 home__30minutes"
         />
         <button2
+          @my-click="toSeekPage"
           text="<span style='font-size:1.8rem;font-weight:bold;color:white;'>相談相手</span>を募集する"
         />
       </div>
-
+      <!-- 話を聞く -->
       <div class="home__listen" v-if="selected == 2">
         <img
-          src="../../public/img/home__listen.svg"
+          src="../../public/img/home__listen@2x.jpg"
           class="m-0 home__30minutes"
         />
         <button2
@@ -65,6 +67,11 @@ export default {
     };
   },
   methods: {
+    toSeekPage() {
+      this.$router.push({
+        path: "/SeekPage",
+      });
+    },
     btn1Click() {
       this.selected = 1;
     },

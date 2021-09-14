@@ -6,8 +6,12 @@
         <p>9/12（日）</p>
       </div>
       <card class="seekVerify__card" />
-      <button1 class="seek__btn" text="募集する" />
-      <button1 class="seek__backBtn" text="戻る" />
+      <button1 @my-click="btn1click" class="seek__btn" text="募集する" />
+      <button1
+        @my-click="btn2click"
+        class="seek__backBtn"
+        text="募集内容を変更する"
+      />
     </div>
   </div>
 </template>
@@ -20,6 +24,14 @@ export default {
     AppHeader,
     Button1,
     Card,
+  },
+  methods: {
+    btn1click() {
+      this.$emit("verify-click");
+    },
+    btn2click() {
+      this.$emit("back-click");
+    },
   },
   data() {
     return {
