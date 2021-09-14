@@ -2,7 +2,7 @@
   <div class="footer-pb">
     <app-header text="マイページ" />
 
-    <div class="mypage f-ali">
+    <div class="mypage f-ali" v-if="load">
       <div class="mypage__userImgWrap f-ali">
         <img class="mypage__userImg" :src="user.img" />
         <button class="mypage__userImgButton" @click="userIconEdit">
@@ -153,6 +153,7 @@ export default {
       Object.keys(response.data).forEach((key) => {
         this.user[key] = response.data[key];
       });
+      this.load = true;
     });
   },
   data() {
