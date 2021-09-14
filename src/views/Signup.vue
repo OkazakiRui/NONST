@@ -70,7 +70,7 @@ export default {
       this.user.email = "";
       this.user.password = "";
       this.user.secondPassword = "";
-      // this.$router.push({ path: "/CreateAccount" });
+      this.$router.push({ path: "/CreateAccount" });
     },
   },
 };

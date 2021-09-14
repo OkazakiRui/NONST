@@ -13,14 +13,11 @@ const actions = {
     axios
       .post(`/accounts:signUp?key=${process.env.VUE_APP_FIREBASE_APIKEY}`, {
         email: authData.email,
-        password: authData.secondPassword,
+        password: authData.password,
         returnSecureToken: true,
       })
       .then((response) => {
         commit("updateIdToken", response.data.idToken);
-      })
-      .catch((error) => {
-        console.log(error);
       });
   },
   signin({ commit }, authData) {
@@ -38,9 +35,13 @@ const actions = {
       });
   },
 };
+const getters = {
+  idToken: (state) => state.idToken,
+};
 
 export default {
   state,
   mutations,
   actions,
+  getters,
 };
