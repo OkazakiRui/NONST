@@ -90,6 +90,7 @@ button {
   .text {
     height: 80px;
     overflow: hidden;
+    text-align: left;
   }
 }
 </style>
