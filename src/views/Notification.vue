@@ -6,11 +6,11 @@
       <notice @my-click="toMypage" title="プロフィールを設定してください" />
       <notice
         @my-click="toMatching"
-        title="ひがあいりさんとマッチングしました。"
+        title="ばりしゃちくさんとマッチングしました。"
       />
       <notice
         @my-click="toMatching"
-        title="ナナテスカトリさんとマッチングしました。"
+        title="オフロスキーさんとマッチングしました。"
       />
     </div>
     <app-footer selected="3" />

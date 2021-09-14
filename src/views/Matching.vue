@@ -9,12 +9,9 @@
       :selected="selected"
     />
     <div class="matching-talks">
+      <matching-talk name="オフロスキー" text="よんだ？" />
       <matching-talk
-        name="ナナテスカトリ"
-        text="マッチングありがとうございます！"
-      />
-      <matching-talk
-        name="おーちゃんねる"
+        name="ばりしゃちく"
         text="マッチングありがとうございます！"
       />
     </div>
