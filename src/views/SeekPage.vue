@@ -99,34 +99,31 @@ export default {
     },
     verify() {
       axios
-        .post(
-          `https://firestore.googleapis.com/v1/projects/${process.env.VUE_APP_FIREBASE_PROJECT_ID}/databases/(default)/documents/posts`,
-          {
-            fields: {
-              name: {
-                stringValue: this.name,
-              },
-              age: {
-                stringValue: this.age,
-              },
-              time1: {
-                stringValue: this.time1,
-              },
-              time2: {
-                stringValue: this.time2,
-              },
-              message: {
-                stringValue: this.message,
-              },
-              shop: {
-                stringValue: this.shop,
-              },
-              icon: {
-                stringValue: this.icon,
-              },
+        .post("/posts", {
+          fields: {
+            name: {
+              stringValue: this.name,
             },
-          }
-        )
+            age: {
+              stringValue: this.age,
+            },
+            time1: {
+              stringValue: this.time1,
+            },
+            time2: {
+              stringValue: this.time2,
+            },
+            message: {
+              stringValue: this.message,
+            },
+            shop: {
+              stringValue: this.shop,
+            },
+            icon: {
+              stringValue: this.icon,
+            },
+          },
+        })
         .then((response) => {
           console.log(response);
         })

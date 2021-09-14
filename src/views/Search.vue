@@ -37,14 +37,9 @@ export default {
     };
   },
   created() {
-    axios
-      .get(
-        `https://firestore.googleapis.com/v1/projects/${process.env.VUE_APP_FIREBASE_PROJECT_ID}/databases/(default)/documents/posts`
-      )
-      .then((respons) => {
-        console.log(respons.data.documents);
-        this.posts = respons.data.documents;
-      });
+    axios.get("/posts").then((respons) => {
+      this.posts = respons.data.documents;
+    });
   },
 };
 </script>
