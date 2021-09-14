@@ -1,5 +1,5 @@
 <template>
-  <div class="footer-pb">
+  <div>
     <app-header text="内容確認" />
     <div class="seekVerify">
       <div class="contents seekVerify__date">
@@ -9,18 +9,15 @@
       <button1 class="seek__btn" text="募集する" />
       <button1 class="seek__backBtn" text="戻る" />
     </div>
-    <app-footer selected="1" />
   </div>
 </template>
 <script>
-import AppHeader from "../components/AppHeader.vue";
-import AppFooter from "../components/AppFooter.vue";
-import Button1 from "../components/Button1.vue";
-import Card from "../components/Card.vue";
+import AppHeader from "./AppHeader.vue";
+import Button1 from "./Button1.vue";
+import Card from "./Card.vue";
 export default {
   components: {
     AppHeader,
-    AppFooter,
     Button1,
     Card,
   },
