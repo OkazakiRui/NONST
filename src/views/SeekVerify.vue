@@ -5,7 +5,7 @@
       <div class="contents seekVerify__date">
         <p>9/12（日）</p>
       </div>
-      <card />
+      <card class="seekVerify__card" />
       <button1 class="seek__btn" text="募集する" />
       <button1 class="seek__backBtn" text="戻る" />
     </div>

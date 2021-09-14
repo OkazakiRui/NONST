@@ -1,6 +1,6 @@
 <template>
   <button class="m-0 shadow">
-    <div>
+    <div class="f-ali">
       <img class="icon" :src="icon" />
       <p class="name">
         {{ name }}
@@ -24,7 +24,7 @@ export default {
   props: {
     name: {
       type: String,
-      default: "not defined",
+      default: "サンプル 太郎",
     },
     age: {
       type: String,
@@ -40,8 +40,7 @@ export default {
     },
     text: {
       type: String,
-      default:
-        "よろしくお願いします！よろしくお願いします！よろしくお願いします！よろしくお願いします！",
+      default: "よろしくお願いします！",
     },
     icon: {
       type: String,
@@ -75,7 +74,7 @@ button {
     border-radius: 50%;
   }
   .name {
-    max-width: 75px;
+    width: 88px;
   }
   p {
     color: #757575;
