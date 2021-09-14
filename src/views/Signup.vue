@@ -70,7 +70,7 @@ export default {
         secondPassword: "※パスワードが間違っています。",
       },
       iconPath: {
-        email: "./img/mail.svg",
+        email: "./img/email.svg",
         password: "./img/password.svg",
       },
       press: false,
