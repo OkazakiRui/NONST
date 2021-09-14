@@ -3,7 +3,13 @@
     <lebel>
       <p>
         {{ title }}
-        <input :class="{ icon: iconPath }" :type="type" :placeholder="text" />
+        <input
+          :class="{ icon: iconPath }"
+          :type="type"
+          :placeholder="text"
+          :value="modelValue"
+          @input="changeValue"
+        />
       </p>
       <img v-if="iconPath" :src="iconPath" />
     </lebel>
@@ -13,6 +19,10 @@
 <script>
 export default {
   props: {
+    modelValue: {
+      type: String,
+      default: null,
+    },
     text: {
       type: String,
       default: "text is not defined",
@@ -28,6 +38,12 @@ export default {
     type: {
       type: String,
       default: "text",
+    },
+  },
+  emits: ["update:modelValue"],
+  methods: {
+    changeValue(e) {
+      this.$emit("update:modelValue", e.target.value);
     },
   },
 };
