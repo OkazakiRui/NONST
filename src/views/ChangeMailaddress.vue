@@ -51,7 +51,7 @@ export default {
   data() {
     return {
       iconPath: {
-        mail: "./img/mail.svg",
+        mail: "./img/email.svg",
       },
       press: true,
     };

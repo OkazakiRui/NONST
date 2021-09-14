@@ -113,7 +113,7 @@ export default {
     },
     toChangeMailaddress() {
       this.$router.push({
-        path: "/ChangePassword",
+        path: "/ChangeMailaddress",
       });
     },
     userLogout() {
