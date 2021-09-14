@@ -4,7 +4,7 @@
 
     <div class="mypage f-ali">
       <div class="mypage__userImgWrap f-ali">
-        <img class="mypage__userImg" :src="userImg" />
+        <img class="mypage__userImg" :src="user.img" />
         <button class="mypage__userImgButton" @click="userIconEdit">
           プロフィール写真を変更
         </button>
@@ -17,8 +17,8 @@
       </div>
 
       <div class="f-alibet mypage__details">
-        <h4 class="mypage__userName">{{ userName }}</h4>
-        <p class="mypage__userAgeAndLive">{{ userAge + "・" + userLive }}</p>
+        <h4 class="mypage__userName">{{ user.name }}</h4>
+        <p class="mypage__userAgeAndLive">{{ user.age + "・" + user.live }}</p>
       </div>
 
       <div class="mypage__userMessage">
@@ -26,7 +26,7 @@
           <h4 class="mypage__title">ひとこと</h4>
           <textarea
             class="mypage__textarea editArrow"
-            :placeholder="userMessage"
+            :placeholder="user.message"
           ></textarea>
         </label>
       </div>
@@ -35,11 +35,11 @@
         <h4 class="mypage__title">プロフィール</h4>
         <label class="f-alibet mypage__input">
           <p>名前</p>
-          <input type="text" class="editArrow" :placeholder="userName" />
+          <input type="text" class="editArrow" :placeholder="user.name" />
         </label>
         <label class="f-alibet mypage__input">
           <p>年齢</p>
-          <select class="editArrow" required :value="userAge">
+          <select class="editArrow" required :value="user.age">
             <option v-for="(age, index) in ages" :key="index" :value="age">
               {{ age }}
             </option>
@@ -47,7 +47,7 @@
         </label>
         <label class="f-alibet mypage__input">
           <p>所在地</p>
-          <select class="editArrow" :value="userLive" required>
+          <select class="editArrow" :value="user.live" required>
             <option disabled selected></option>
             <option v-for="(live, index) in lives" :key="index" :value="live">
               {{ live }}
@@ -75,16 +75,18 @@
 <script>
 import AppHeader from "../components/AppHeader.vue";
 import AppFooter from "../components/AppFooter.vue";
-
+import axios from "../axios-db";
 export default {
   data() {
     return {
-      userName: "サンプル太郎",
-      userAge: "30代",
-      userLive: "北海道",
-      userMessage:
-        "35歳の限界社畜です。上司がうざすぎてはじめました。よろしくおねいがします。",
-      userImg: "./img/userIcon.svg",
+      user: {
+        name: "",
+        age: "",
+        live: "",
+        message: "はじめまして！よろしくお願いします！",
+        img: "./img/userIcon.svg",
+      },
+      load: false,
       ages: [
         "10代",
         "20代",
@@ -169,6 +171,15 @@ export default {
     userLogout() {
       this.$store.dispatch("logout");
     },
+  },
+  created() {
+    const localId = localStorage.getItem("localId");
+    axios.get(`/${localId}.json`).then((response) => {
+      Object.keys(response.data).forEach((key) => {
+        this.user[key] = response.data[key];
+      });
+      // this.load = true;
+    });
   },
 };
 </script>

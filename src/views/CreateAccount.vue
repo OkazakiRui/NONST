@@ -30,7 +30,7 @@
       :blue="press"
       :dontPress="!press"
       class="button"
-      @my-click="toHome"
+      @my-click="createAccount"
       text="アカウント作成"
     />
   </div>
@@ -41,6 +41,7 @@ import AppHeader from "../components/AppHeader.vue";
 import InputText from "../components/InputText.vue";
 import SelectOptions from "../components/SelectOptions.vue";
 import Button1 from "../components/Button1.vue";
+import axios from "../axios-db";
 export default {
   components: {
     AppHeader,
@@ -124,9 +125,18 @@ export default {
     };
   },
   methods: {
-    toHome() {
+    createAccount() {
       if (this.press) {
-        this.$router.push({ path: "/" });
+        const localId = localStorage.getItem("localId");
+        axios
+          .put(`/${localId}.json`, {
+            name: this.user.name,
+            age: this.user.age,
+            live: this.user.live,
+          })
+          .then(() => {
+            this.$router.push({ path: "/" });
+          });
       }
     },
     inputUpdate() {

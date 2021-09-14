@@ -23,6 +23,7 @@ const actions = {
           idToken: response.data.idToken,
           expiresIn: response.data.expiresIn,
           refreshToken: response.data.refreshToken,
+          localId: response.data.localId,
         });
         router.push({ path: "/CreateAccount" });
       });
@@ -42,6 +43,7 @@ const actions = {
           idToken: response.data.idToken,
           expiresIn: response.data.expiresIn,
           refreshToken: response.data.refreshToken,
+          localId: response.data.localId,
         });
         router.push({ path: "/" });
       });
@@ -51,6 +53,7 @@ const actions = {
     localStorage.removeItem("idToken");
     localStorage.removeItem("refreshToken");
     localStorage.removeItem("expiryTimeMs");
+    localStorage.removeItem("localId");
     router.push({
       path: "/start",
     });
@@ -67,6 +70,7 @@ const actions = {
           idToken: response.data.id_token,
           expiresIn: response.data.expires_in,
           refreshToken: response.data.refresh_token,
+          localId: response.data.local_id,
         });
       });
   },
@@ -101,6 +105,8 @@ const actions = {
     localStorage.setItem("idToken", authData.idToken);
     localStorage.setItem("refreshToken", authData.refreshToken);
     localStorage.setItem("expiryTimeMs", expiryTimeMs);
+    localStorage.setItem("localId", authData.localId);
+
     commit("updateIdToken", authData.idToken);
 
     // 有効期限の時間が来ると一回実行
