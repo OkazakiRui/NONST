@@ -9,25 +9,14 @@
       :selected="selected"
     />
     <div class="matching-talks">
-      <matching-talk name="岡崎体育" text="マッチングありがとうございます！" />
-      <matching-talk name="岡崎体育" text="マッチングありがとうございます！" />
-      <matching-talk name="岡崎体育" text="マッチングありがとうございます！" />
-      <matching-talk name="岡崎体育" text="マッチングありがとうございます！" />
-      <matching-talk name="岡崎体育" text="マッチングありがとうございます！" />
-      <matching-talk name="岡崎体育" text="マッチングありがとうございます！" />
-      <matching-talk name="岡崎体育" text="マッチングありがとうございます！" />
-      <matching-talk name="岡崎体育" text="マッチングありがとうございます！" />
-      <matching-talk name="岡崎体育" text="マッチングありがとうございます！" />
-      <matching-talk name="岡崎体育" text="マッチングありがとうございます！" />
-      <matching-talk name="岡崎体育" text="マッチングありがとうございます！" />
-      <matching-talk name="岡崎体育" text="マッチングありがとうございます！" />
-      <matching-talk name="岡崎体育" text="マッチングありがとうございます！" />
-      <matching-talk name="岡崎体育" text="マッチングありがとうございます！" />
-      <matching-talk name="岡崎体育" text="マッチングありがとうございます！" />
-      <matching-talk name="岡崎体育" text="マッチングありがとうございます！" />
-      <matching-talk name="岡崎体育" text="マッチングありがとうございます！" />
-      <matching-talk name="岡崎体育" text="マッチングありがとうございます！" />
-      <matching-talk name="岡崎体育" text="マッチングありがとうございます！" />
+      <matching-talk
+        name="ナナテスカトリ"
+        text="マッチングありがとうございます！"
+      />
+      <matching-talk
+        name="おーちゃんねる"
+        text="マッチングありがとうございます！"
+      />
     </div>
     <app-footer selected="2" />
   </div>
