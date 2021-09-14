@@ -1,5 +1,5 @@
 <template>
-  <button class="m-0 shadow">
+  <button :class="{ 'm-0': true, shadow: true, green: green }">
     <div class="f-ali">
       <img class="icon" :src="icon" />
       <p class="name">
@@ -46,6 +46,10 @@ export default {
       type: String,
       default: "./img/userIcon.svg",
     },
+    green: {
+      type: Boolean,
+      default: false,
+    },
   },
 };
 </script>
@@ -60,6 +64,9 @@ button {
   font-size: 1.4rem;
   border-radius: 13px;
   background-color: #e2f0fc;
+  &.green {
+    background-color: #ecfce2;
+  }
   div {
     height: 100%;
     display: flex;
@@ -81,7 +88,6 @@ button {
   }
   .shop,
   .time {
-    font-weight: bold;
     img {
       margin-right: 8px;
     }
