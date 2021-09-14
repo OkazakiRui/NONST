@@ -29,14 +29,6 @@ export default {
       selected: 1,
     };
   },
-  methods: {
-    btn1Click() {
-      this.selected = 1;
-    },
-    btn2Click() {
-      this.selected = 2;
-    },
-  },
 };
 </script>
 
