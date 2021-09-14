@@ -66,6 +66,7 @@ import AppFooter from "../components/AppFooter.vue";
 import TitleBar from "../components/TitleBar.vue";
 import Button1 from "../components/Button1.vue";
 import SeekVerify from "../components/SeekVerify.vue";
+import axios from "axios";
 export default {
   components: {
     AppHeader,
@@ -97,6 +98,49 @@ export default {
       this.page = 2;
     },
     verify() {
+      axios
+        .post(
+          `https://firestore.googleapis.com/v1/projects/${process.env.VUE_APP_FIREBASE_PROJECT_ID}/databases/(default)/documents/posts`,
+          {
+            fields: {
+              name: {
+                stringValue: this.name,
+              },
+              age: {
+                stringValue: this.age,
+              },
+              time1: {
+                stringValue: this.time1,
+              },
+              time2: {
+                stringValue: this.time2,
+              },
+              message: {
+                stringValue: this.message,
+              },
+              shop: {
+                stringValue: this.shop,
+              },
+              icon: {
+                stringValue: this.icon,
+              },
+            },
+          }
+        )
+        .then((response) => {
+          console.log(response);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      // 処理が終わったら
+      this.name = "";
+      this.age = "";
+      this.time1 = "00:00";
+      this.time2 = "00:00";
+      this.message = "";
+      this.shop = "鳥貴族　天神橋三丁目店";
+      this.icon = "./img/userIcon.svg";
       this.page = 3;
     },
   },
