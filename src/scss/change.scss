@@ -1,0 +1,16 @@
+@mixin mt($per) {
+  margin-top: calc(100vh * #{$per});
+}
+
+.inputs {
+  @include mt(0.125615764);
+}
+.inputText {
+  margin-bottom: 24px;
+}
+.button {
+  margin-top: 56px;
+}
+.button:nth-of-type(2) {
+  margin-top: 24px;
+}

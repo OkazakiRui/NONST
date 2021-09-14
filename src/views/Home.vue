@@ -27,17 +27,20 @@
           class="m-0 home__30minutes"
         />
         <button2
+          @my-click="toSearchPage"
           colorGreen="true"
           text="<span style='font-size:1.8rem;font-weight:bold;color:white;'>今日</span>相談を聞く"
         />
 
         <div class="f-bet m-0 home__btns">
           <button2
+            @my-click="toSearchPage"
             colorGreen="true"
             half="true"
             text="<span style='font-size:1.8rem;font-weight:bold;color:white;'>明日</span>聞く"
           />
           <button2
+            @my-click="toSearchPage"
             colorGreen="true"
             half="true"
             text="<span style='font-size:1.8rem;font-weight:bold;color:white;'>カレンダー</span>から"
@@ -77,6 +80,11 @@ export default {
     },
     btn2Click() {
       this.selected = 2;
+    },
+    toSearchPage() {
+      this.$router.push({
+        path: "/Search",
+      });
     },
   },
 };

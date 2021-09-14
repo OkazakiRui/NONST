@@ -54,7 +54,9 @@
             </option>
           </select>
         </label>
-        <button class="mypage__button editArrow">パスワードを変更する</button>
+        <button @click="toChangePassword" class="mypage__button editArrow">
+          パスワードを変更する
+        </button>
         <button class="mypage__button editArrow">
           メールアドレスを変更する
         </button>
@@ -75,7 +77,7 @@ import AppFooter from "../components/AppFooter.vue";
 export default {
   data() {
     return {
-      userName: "not find",
+      userName: "サンプル太郎",
       userAge: "30代",
       userLive: "北海道",
       userMessage:
@@ -151,6 +153,11 @@ export default {
   methods: {
     userIconEdit() {
       document.getElementById("userIconInput").click();
+    },
+    toChangePassword() {
+      this.$router.push({
+        path: "/ChangePassword",
+      });
     },
   },
 };

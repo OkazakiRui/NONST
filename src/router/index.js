@@ -9,6 +9,7 @@ import Notification from "../views/Notification.vue";
 import Mypage from "../views/Mypage.vue";
 import SeekPage from "../views/SeekPage.vue";
 import Search from "../views/Search.vue";
+import ChangePassWord from "../views/ChangePassword.vue";
 
 import Test from "../views/Test.vue";
 const routes = [
@@ -61,6 +62,11 @@ const routes = [
     path: "/Search",
     name: "Search",
     component: Search,
+  },
+  {
+    path: "/ChangePassWord",
+    name: "ChangePassWord",
+    component: ChangePassWord,
   },
   {
     path: "/Test",
