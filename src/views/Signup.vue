@@ -76,6 +76,9 @@ export default {
           console.log(error);
         });
 
+      this.user.email = "";
+      this.user.password = "";
+      this.user.secondPassword = "";
       // this.$router.push({ path: "/CreateAccount" });
     },
   },
