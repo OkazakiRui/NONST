@@ -2,18 +2,28 @@
   <div>
     <app-header text="アカウント登録" />
     <div class="inputs">
-      <input-text text="高木 ゆず" title="名前" class="inputText" />
+      <input-text
+        text="とくめい たろう"
+        title="名前"
+        class="inputText"
+        v-model="user.name"
+        @my-change="inputUpdate"
+      />
       <select-options
         text="年齢を選択してください"
         title="年齢"
         :options="ages"
         class="inputText"
+        v-model="user.age"
+        @my-change="inputUpdate"
       />
       <select-options
         text="都道府県を選択してください"
         title="所在地"
         :options="lives"
         class="inputText"
+        v-model="user.live"
+        @my-change="inputUpdate"
       />
     </div>
     <Button1
@@ -40,11 +50,16 @@ export default {
   },
   data() {
     return {
+      user: {
+        name: "",
+        age: "",
+        live: "",
+      },
       iconPath: {
         mail: "./img/mail.svg",
         password: "./img/password.svg",
       },
-      press: true,
+      press: false,
       ages: [
         "10代",
         "20代",
@@ -108,14 +123,15 @@ export default {
       ],
     };
   },
-  computed: {
-    idToken() {
-      return this.$store.getters.idToken;
-    },
-  },
   methods: {
     toHome() {
-      this.$router.push({ path: "/" });
+      if (this.press) {
+        this.$router.push({ path: "/" });
+      }
+    },
+    inputUpdate() {
+      if (this.user.name && this.user.age && this.user.live) this.press = true;
+      else this.press = false;
     },
   },
 };

@@ -3,7 +3,7 @@
     <lebel>
       <p>
         {{ title }}
-        <select required>
+        <select required :value="modelValue" @change="changeValue">
           <option disabled selected value="">{{ text }}</option>
           <option
             v-for="(option, index) in options"
@@ -22,6 +22,10 @@
 <script>
 export default {
   props: {
+    modelValue: {
+      type: String,
+      default: "",
+    },
     text: {
       type: String,
       default: "text is not defined",
@@ -33,6 +37,16 @@ export default {
     title: {
       type: String,
       default: "text is not defined",
+    },
+  },
+  emits: ["update:modelValue"],
+  methods: {
+    changeValue(e) {
+      this.$emit("update:modelValue", e.target.value);
+      this.$emit("my-change");
+    },
+    change() {
+      this.$emit("my-change");
     },
   },
 };
