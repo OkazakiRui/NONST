@@ -57,7 +57,7 @@
         <button @click="toChangePassword" class="mypage__button editArrow">
           パスワードを変更する
         </button>
-        <button class="mypage__button editArrow">
+        <button @click="toChangeMailaddress" class="mypage__button editArrow">
           メールアドレスを変更する
         </button>
       </div>
@@ -155,6 +155,11 @@ export default {
       document.getElementById("userIconInput").click();
     },
     toChangePassword() {
+      this.$router.push({
+        path: "/ChangePassword",
+      });
+    },
+    toChangeMailaddress() {
       this.$router.push({
         path: "/ChangePassword",
       });

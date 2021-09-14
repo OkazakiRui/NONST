@@ -9,7 +9,8 @@ import Notification from "../views/Notification.vue";
 import Mypage from "../views/Mypage.vue";
 import SeekPage from "../views/SeekPage.vue";
 import Search from "../views/Search.vue";
-import ChangePassWord from "../views/ChangePassword.vue";
+import ChangePassword from "../views/ChangePassword.vue";
+import ChangeMailaddress from "../views/ChangeMailaddress.vue";
 
 import Test from "../views/Test.vue";
 const routes = [
@@ -64,9 +65,14 @@ const routes = [
     component: Search,
   },
   {
-    path: "/ChangePassWord",
-    name: "ChangePassWord",
-    component: ChangePassWord,
+    path: "/ChangePassword",
+    name: "ChangePassword",
+    component: ChangePassword,
+  },
+  {
+    path: "/ChangeMailaddress",
+    name: "ChangeMailaddress",
+    component: ChangeMailaddress,
   },
   {
     path: "/Test",
