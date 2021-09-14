@@ -35,6 +35,12 @@
       <button1 class="seek__backBtn" text="戻る" />
     </div>
     <seek-verify v-if="page == 2" />
+    <div v-if="page == 3">
+      <app-header text="募集完了" />
+      <button class="m-0 mt64">
+        <img src="../../public/img/seek__verify.svg" />
+      </button>
+    </div>
     <app-footer selected="1" />
   </div>
 </template>
@@ -54,7 +60,7 @@ export default {
   },
   data() {
     return {
-      page: 1,
+      page: 3,
     };
   },
   methods: {
