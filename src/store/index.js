@@ -1,12 +1,10 @@
 import { createStore } from "vuex";
 
-import count from "./modules/count";
-import message from "./modules/message";
+import APIKEY from "./modules/APIKEY";
 
 export default createStore({
   modules: {
-    count,
-    message,
+    APIKEY,
   },
 
   // action =>  mutations => actions

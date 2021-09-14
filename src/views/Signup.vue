@@ -15,6 +15,7 @@
         :iconPath="iconPath.password"
         type="password"
         class="inputText"
+        v-model="user.password"
       />
       <input-text
         text="半角英数字で8文字以上"
@@ -22,6 +23,7 @@
         :iconPath="iconPath.password"
         type="password"
         class="inputText"
+        v-model="user.secondPassword"
       />
     </div>
     <Button1
@@ -50,6 +52,7 @@ export default {
       user: {
         email: "",
         password: "",
+        secondPassword: "",
       },
       iconPath: {
         mail: "./img/mail.svg",
@@ -60,12 +63,20 @@ export default {
   },
   methods: {
     toCreateAccount() {
-      axios.post(
-        `/accounts:signUp?key=${process.env.VUE_APP_FIREBASE_APIKEY}`,
-        { email: "" }
-      );
+      axios
+        .post(`/accounts:signUp?key=${this.$store.getters.APIKEY}`, {
+          email: this.user.email,
+          password: this.user.secondPassword,
+          returnSecureToken: true,
+        })
+        .then((response) => {
+          console.log(response);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
 
-      this.$router.push({ path: "/CreateAccount" });
+      // this.$router.push({ path: "/CreateAccount" });
     },
   },
 };
