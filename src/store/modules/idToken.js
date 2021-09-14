@@ -11,7 +11,7 @@ const mutations = {
 const actions = {
   signup({ commit }, authData) {
     axios
-      .post(`/accounts:signUp?key=${this.$store.getters.APIKEY}`, {
+      .post(`/accounts:signUp?key=${process.env.VUE_APP_FIREBASE_APIKEY}`, {
         email: authData.email,
         password: authData.secondPassword,
         returnSecureToken: true,
@@ -25,11 +25,14 @@ const actions = {
   },
   signin({ commit }, authData) {
     axios
-      .post(`/accounts:signInWithPassword?key=${this.$store.getters.APIKEY}`, {
-        email: authData.email,
-        password: authData.password,
-        returnSecureToken: true,
-      })
+      .post(
+        `/accounts:signInWithPassword?key=${process.env.VUE_APP_FIREBASE_APIKEY}`,
+        {
+          email: authData.email,
+          password: authData.password,
+          returnSecureToken: true,
+        }
+      )
       .then((response) => {
         commit("updateIdToken", response.data.idToken);
       });
