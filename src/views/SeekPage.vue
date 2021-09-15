@@ -138,29 +138,32 @@ export default {
             },
           }
         )
-        .then((response) => {
-          console.log(response);
+        .then(() => {
+          // 処理が終わったら
+          this.name = "";
+          this.age = "";
+          this.time1 = "00:00";
+          this.time2 = "00:00";
+          this.message = "";
+          this.shop = "鳥貴族　天神橋三丁目店";
+          this.icon = "./img/userIcon.svg";
+          this.page = 3;
         })
         .catch((error) => {
           console.log(error);
         });
-      // 処理が終わったら
-      this.name = "";
-      this.age = "";
-      this.time1 = "00:00";
-      this.time2 = "00:00";
-      this.message = "";
-      this.shop = "鳥貴族　天神橋三丁目店";
-      this.icon = "./img/userIcon.svg";
-      this.page = 3;
     },
   },
   created() {
     axiosDB.get(`/${localStorage.getItem("localId")}.json`).then((response) => {
       Object.keys(response.data).forEach((key) => {
-        if (key == "message") return;
-        if (key == "img") this.icon = response.data[key];
-        this[key] = response.data[key];
+        if (key == "message") {
+          return;
+        } else if (key == "img") {
+          this.icon = response.data.img;
+        } else {
+          this[key] = response.data[key];
+        }
       });
     });
   },
