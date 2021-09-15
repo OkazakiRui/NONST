@@ -97,6 +97,7 @@
 import AppHeader from "../components/AppHeader.vue";
 import AppFooter from "../components/AppFooter.vue";
 import axios from "../axios-db";
+import ImageTools from "../js/resize";
 export default {
   components: {
     AppHeader,
@@ -125,18 +126,23 @@ export default {
 
       if (e.target.files) {
         const image = e.target.files[0];
-        const reader = new FileReader();
-        reader.readAsDataURL(image);
-        reader.onload = () => {
-          this.user.img = reader.result;
-          axios.put(`/${localStorage.getItem("localId")}.json`, {
-            name: this.user.name,
-            age: this.user.age,
-            live: this.user.live,
-            message: this.user.message,
-            img: this.user.img,
-          });
-        };
+        ImageTools.resize(
+          image,
+          {
+            width: 500,
+            height: 500,
+          },
+          (blob) => {
+            this.user.img = window.URL.createObjectURL(blob);
+            axios.put(`/${localStorage.getItem("localId")}.json`, {
+              name: this.user.name,
+              age: this.user.age,
+              live: this.user.live,
+              message: this.user.message,
+              img: this.user.img,
+            });
+          }
+        );
       } else {
         axios.put(`/${localStorage.getItem("localId")}.json`, {
           name: this.user.name,

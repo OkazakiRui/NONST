@@ -54,7 +54,7 @@
     <div v-if="page == 3">
       <app-header text="募集完了" />
       <button @click="toHome" class="m-0 mt64">
-        <img src="../../public/img/seek__verify.svg" />
+        <img src="../../public/img/seek__verify@2x.jpg" />
       </button>
     </div>
     <app-footer selected="1" />
