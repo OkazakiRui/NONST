@@ -126,6 +126,7 @@ export default {
 
       if (e.target.files) {
         const image = e.target.files[0];
+
         ImageTools.resize(
           image,
           {
@@ -155,12 +156,18 @@ export default {
     },
   },
   created() {
-    axios.get(`/${localStorage.getItem("localId")}.json`).then((response) => {
-      Object.keys(response.data).forEach((key) => {
-        this.user[key] = response.data[key];
+    axios
+      .get(`/${localStorage.getItem("localId")}.json`)
+      .then((response) => {
+        console.log(response);
+        Object.keys(response.data).forEach((key) => {
+          this.user[key] = response.data[key];
+        });
+        this.load = true;
+      })
+      .catch((err) => {
+        console.log(err);
       });
-      this.load = true;
-    });
   },
   data() {
     return {
